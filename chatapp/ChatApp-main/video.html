@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video_call</title>
+</head>
+<body>
+    <script>
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+      
+        script.addEventListener("load", function (event) {
+          const config = {
+            name: "Second Person",
+            meetingId: "milkyway",
+            apiKey: "f64043e5-3820-431f-a365-a00b45cc16ed",
+      
+            containerId: null,
+      
+            micEnabled: true,
+            webcamEnabled: true,
+            participantCanToggleSelfWebcam: true,
+            participantCanToggleSelfMic: true,
+      
+            chatEnabled: true,
+            screenShareEnabled: true,
+      
+            /*
+      
+           Other Feature Properties
+            
+            */
+          };
+      
+          const meeting = new VideoSDKMeeting();
+          meeting.init(config);
+        });
+      
+        script.src =
+          "https://sdk.videosdk.live/rtc-js-prebuilt/0.3.31/rtc-js-prebuilt.js";
+        document.getElementsByTagName("head")[0].appendChild(script);
+      </script>
+    
+</body>
+</html>

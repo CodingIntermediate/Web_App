@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>audio_call</title>
+</head>
+<body>
+    <script>
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+      
+        script.addEventListener("load", function (event) {
+          const config = {
+            name: "First Person",
+            meetingId: "milkyway",
+            apiKey: "f64043e5-3820-431f-a365-a00b45cc16ed",
+      
+            containerId: null,
+      
+            micEnabled: true,
+            webcamEnabled: true,
+            participantCanToggleSelfWebcam: true,
+            participantCanToggleSelfMic: true,
+      
+            chatEnabled: true,
+            screenShareEnabled: true,
+      
+            /*
+      
+           Other Feature Properties
+            
+            */
+          };
+      
+          const meeting = new VideoSDKMeeting();
+          meeting.init(config);
+        });
+      
+        script.src =
+          "https://sdk.videosdk.live/rtc-js-prebuilt/0.3.31/rtc-js-prebuilt.js";
+        document.getElementsByTagName("head")[0].appendChild(script);
+      </script>
+    
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Audio Call.');
+	}
+	// ]]>
+</script>
+</body>
+</html>
